@@ -19,7 +19,7 @@ export class NewsFeedService {
   refresh$ = new BehaviorSubject(null);
 
   news$ = this.refresh$.pipe(
-    exhaustMap(() => this.loadNews$)
+    exhaustMap(() =>{ console.log("refresh"); return this.loadNews$})
   );
 
   constructor(private http: HttpClient) { }
